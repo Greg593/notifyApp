@@ -5,13 +5,26 @@
 </ion-header>
 
 <ion-content padding>
-  <h2>Welcome to Ionic!</h2>
+  <h2>Notifica y Alerta!</h2>
   <p>
-    This starter project comes with simple tabs-based layout for apps
-    that are going to primarily use a Tabbed UI.
+    Es un sistema de alertas que te ayudará a reportar o notificar cualquier anomalía en tu viaje.
   </p>
   <p>
-    Take a look at the <code>src/pages/</code> directory to add or change tabs,
-    update any existing page or create new pages.
+    Date una vuelta en <a>preguntas frecuentes</a> para ver todas las posiblidades de esta aplicación.
   </p>
+
+  <ion-fab center middle>
+    <button ion-fab color="danger"><ion-icon name="add"></ion-icon></button>
+    <ion-fab-list side="top">
+      <button ion-fab color="primary"><ion-icon name="nuclear"></ion-icon></button>
+    </ion-fab-list>
+    <ion-fab-list side="left">
+      <button ion-fab color="light"><ion-icon name="walk"></ion-icon></button>
+    </ion-fab-list>
+    <ion-fab-list side="right">
+      <button ion-fab color="dark"><ion-icon name="walk"></ion-icon></button>
+    </ion-fab-list>
+  </ion-fab>
+
+  <a>Cerrar sesión</a>
 </ion-content>
