@@ -1,66 +1,70 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-angular';
 import { HomePage } from '../home/home';
 import { SignupPage } from '../signup/signup';
+import { AuthProvider } from '../../providers/auth/auth';
+
 
 @IonicPage()
 @Component({
-  selector: 'page-login',
-  templateUrl: 'login.html',
+    selector: 'page-login',
+    templateUrl: 'login.html',
 })
 export class LoginPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-  }
+    email: string;
+    password: string;
+    loading: any;
 
-  ionViewDidLoad() {
-    this.showLoader();
+    constructor(public navCtrl: NavController, public loadingCtrl: LoadingController, public authService: AuthProvider, public navParams: NavParams) {
+    }
 
-      //Check if already authenticated
-      this.authService.checkAuthentication().then((res) => {
-          console.log("Ya te has logueado");
-          this.loading.dismiss();
-          this.navCtrl.setRoot(HomePage);
-      }, (err) => {
-          console.log("Usuario NO autorizado");
-          this.loading.dismiss();
-      });
+    ionViewDidLoad() {
+        this.showLoader();
 
-  }
+        //Check if already authenticated    
+        this.authService.checkAuthentication().then((res) => {
+            console.log("Ya te has logueado");
+            this.loading.dismiss();
+            this.navCtrl.setRoot(HomePage);
+        }, (err) => {
+            console.log("Usuario NO autorizado");
+            this.loading.dismiss();
+        });
 
-  login(){
+    }
 
-      this.showLoader();
+    login() {
 
-      let credentials = {
-          email: this.email,
-          password: this.password
-      };
+        this.showLoader();
 
-      this.authService.login(credentials).then((result) => {
-          this.loading.dismiss();
-          console.log(result);
-          this.navCtrl.setRoot(HomePage);
-      }, (err) => {
-          this.loading.dismiss();
-          console.log(err);
-      });
+        let credentials = {
+            email: this.email,
+            password: this.password
+        };
 
-  }
+        this.authService.login(credentials).then((result) => {
+            this.loading.dismiss();
+            console.log(result);
+            this.navCtrl.setRoot(HomePage);
+        }, (err) => {
+            this.loading.dismiss();
+            console.log(err);
+        });
 
-  launchSignup(){
-      this.navCtrl.push(SignupPage);
-  }
+    }
 
-  showLoader(){
+    launchSignup() {
+        this.navCtrl.push(SignupPage);
+    }
 
-      this.loading = this.loadingCtrl.create({
-          content: 'Autenticando...'
-      });
+    showLoader() {
 
-      this.loading.present();
+        this.loading = this.loadingCtrl.create({
+            content: 'Autenticando...'
+        });
 
-  }
-  }
+        this.loading.present();
 
+    }
 }

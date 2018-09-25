@@ -11,10 +11,13 @@ import { BusesPage } from '../pages/buses/buses';
 import { ForgottenpswPage } from '../pages/forgottenpsw/forgottenpsw';
 import { HistoryPage } from '../pages/history/history';
 import { LoginPage } from '../pages/login/login';
+import { SignupPage } from '../pages/signup/signup';
 import { UpdateprofilePage } from '../pages/updateprofile/updateprofile';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { AuthProvider } from '../providers/auth/auth';
+import { UsuariosProvider } from '../providers/usuarios/usuarios';
 
 @NgModule({
   declarations: [
@@ -27,6 +30,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     ForgottenpswPage,
     HistoryPage,
     LoginPage,
+    SignupPage,
     UpdateprofilePage
   ],
   imports: [
@@ -44,12 +48,15 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     ForgottenpswPage,
     HistoryPage,
     LoginPage,
+    SignupPage,
     UpdateprofilePage
   ],
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    AuthProvider,
+    UsuariosProvider
   ]
 })
 export class AppModule {}
