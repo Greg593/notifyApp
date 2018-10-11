@@ -1,22 +1,21 @@
 import { Injectable } from '@angular/core';
-import { Http, Headers } from '@angular/http';
 import { AuthProvider } from '../auth/auth';
+import { Http, Headers } from '@angular/http';
 import 'rxjs/add/operator/map';
- 
+
 @Injectable()
-export class UsuariosProvider {
- 
+export class BusesProvider {
+
   constructor(public http: Http, public authService: AuthProvider) {
- 
   }
- 
-  getTodos(){
+
+  getBuses(){
  
     return new Promise((resolve, reject) => {
  
       let headers = new Headers();
       headers.append('Authorization', this.authService.token);     
-      this.http.get('http://localhost:8080/api/usuarios', {headers: headers})
+      this.http.get('http://localhost:8080/api/buses', {headers: headers})
         .map(res => res.json())
         .subscribe(data => {
           resolve(data);
@@ -27,7 +26,7 @@ export class UsuariosProvider {
  
   }
  
-  createTodo(usuario){
+  createBus(bus){
  
     return new Promise((resolve, reject) => {
  
@@ -35,7 +34,7 @@ export class UsuariosProvider {
       headers.append('Content-Type', 'application/json');
       headers.append('Authorization', this.authService.token);
  
-      this.http.post('http://localhost:8080/api/usuarios', JSON.stringify(usuario), {headers: headers})
+      this.http.post('http://localhost:8080/api/buses', JSON.stringify(bus), {headers: headers})
         .map(res => res.json())
         .subscribe(res => {
           resolve(res);
@@ -47,14 +46,14 @@ export class UsuariosProvider {
  
   }
  
-  deleteTodo(id){
+  deleteBus(id){
  
     return new Promise((resolve, reject) => {
  
         let headers = new Headers();
         headers.append('Authorization', this.authService.token);
  
-        this.http.delete('http://localhost:8080/api/usuarios/' + id, {headers: headers}).subscribe((res) => {
+        this.http.delete('http://localhost:8080/api/buses/' + id, {headers: headers}).subscribe((res) => {
             resolve(res);
         }, (err) => {
             reject(err);
@@ -63,5 +62,5 @@ export class UsuariosProvider {
     });
  
   }
- 
+
 }

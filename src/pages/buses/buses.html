@@ -1,18 +1,30 @@
-<!--
-  Generated template for the BusesPage page.
 
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
 
   <ion-navbar>
-    <ion-title>buses</ion-title>
+    <ion-title>Mis Buses</ion-title>
   </ion-navbar>
-
 </ion-header>
 
 
 <ion-content padding>
+
+    <ion-list no-lines>
+      
+        <ion-item-sliding *ngFor="let bus of buses">
+     
+          <ion-item>
+            {{bus.nombre}}
+          </ion-item>          
+     
+          <ion-item-options>
+            <button ion-button color="danger" (click)="deleteBus(bus)">
+              <ion-icon name="trash"></ion-icon>
+              Borrar
+            </button>
+          </ion-item-options>
+        </ion-item-sliding>
+     
+      </ion-list>
 
 </ion-content>

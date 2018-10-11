@@ -22,4 +22,8 @@ export class ForgottenpswPage {
     console.log('ionViewDidLoad ForgottenpswPage');
   }
 
+  recuperarCuenta(){
+    console.log("Se debería enviar un correo");
+  }
+
 }

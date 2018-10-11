@@ -10,7 +10,7 @@
     Es un sistema de alertas que te ayudará a reportar o notificar cualquier anomalía en tu viaje.
   </p>
   <p>
-    Date una vuelta en <a>preguntas frecuentes</a> para ver todas las posiblidades de esta aplicación.
+    Date una vuelta en <a (click)="about()">preguntas frecuentes</a> para ver todas las posiblidades de esta aplicación.
   </p>
 
   <ion-fab center middle>
@@ -26,5 +26,5 @@
     </ion-fab-list>
   </ion-fab>
 
-  <a>Cerrar sesión</a>
+  <button ion-button outline (click)="logout()">Cerrar Sesión</button>
 </ion-content>

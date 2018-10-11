@@ -7,12 +7,21 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>forgottenpsw</ion-title>
+    <ion-title>Recuperación de Cuenta</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
-<ion-content padding>
-
+<ion-content padding scroll="false" text-center col col-50 col-offset-25>
+  <h2>Notifica y Alerta</h2>
+  <p>Ingresa tu correo electrónico. Te enviaremos una contraseña 
+    temporal para que puedas acceder sin ningún problema  </p>
+  <ion-list>
+    <ion-item>
+      <ion-label floating>email</ion-label>
+      <ion-input [(ngModel)]="email" type="text" value=""></ion-input>
+    </ion-item>
+  </ion-list>
+  <button ion-button outline (click)="recuperarCuenta()">Enviar</button>
 </ion-content>

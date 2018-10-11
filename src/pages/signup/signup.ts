@@ -5,13 +5,14 @@ import { AuthProvider } from '../../providers/auth/auth';
  
 @Component({
   selector: 'signup-page',
-  templateUrl: 'signup-page.html'
+  templateUrl: 'signup.html'
 })
 export class SignupPage {
  
   role: string;
   email: string;
   password: string;
+  dpi: string;
   loading: any;
  
   constructor(public navCtrl: NavController, public authService: AuthProvider, public loadingCtrl: LoadingController) {
@@ -25,6 +26,7 @@ export class SignupPage {
     let details = {
         email: this.email,
         password: this.password,
+        dpi: this.dpi,
         role: this.role
     };
  
