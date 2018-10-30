@@ -9,10 +9,11 @@ import { AuthProvider } from '../../providers/auth/auth';
 })
 export class SignupPage {
  
-  role: string;
+  name: String;
   email: string;
   password: string;
   dpi: string;
+  rpassword: string;
   loading: any;
  
   constructor(public navCtrl: NavController, public authService: AuthProvider, public loadingCtrl: LoadingController) {
@@ -24,10 +25,10 @@ export class SignupPage {
     this.showLoader();
  
     let details = {
+        name: this.name,
         email: this.email,
         password: this.password,
-        dpi: this.dpi,
-        role: this.role
+        dpi: this.dpi
     };
  
     this.authService.createAccount(details).then((result) => {

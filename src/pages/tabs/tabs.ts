@@ -5,6 +5,7 @@ import { HomePage } from '../home/home';
 import { BusesPage } from '../buses/buses';
 import { UpdateprofilePage } from '../updateprofile/updateprofile';
 import { HistoryPage } from '../history/history';
+import { LogoutPage } from '../logout/logout';
 
 @Component({
   templateUrl: 'tabs.html'
@@ -16,6 +17,7 @@ export class TabsPage {
   tab3Root = UpdateprofilePage;
   tab4Root = HistoryPage;
   tab5Root = AboutPage;
+  tab6Root = LogoutPage
 
   constructor() {
 

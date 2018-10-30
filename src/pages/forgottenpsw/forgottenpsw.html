@@ -1,9 +1,4 @@
-<!--
-  Generated template for the ForgottenpswPage page.
 
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
 
   <ion-navbar>
@@ -13,14 +8,15 @@
 </ion-header>
 
 
-<ion-content padding scroll="false" text-center col col-50 col-offset-25>
+<ion-content padding no-bounce text-center col col-50 col-offset-25>
   <h2>Notifica y Alerta</h2>
-  <p>Ingresa tu correo electrónico. Te enviaremos una contraseña 
-    temporal para que puedas acceder sin ningún problema  </p>
+  <p>ingresa tu correo electrónico, se te enviará una contraseña temporal para poder ingresar
+    a tu cuenta, recuerda que la contraseña temporal vence en <strong> {{horas}} </strong> horas</p>
+    <p>Debes cambiarla al ingresar nuevamente a tu cuenta</p>
   <ion-list>
     <ion-item>
       <ion-label floating>email</ion-label>
-      <ion-input [(ngModel)]="email" type="text" value=""></ion-input>
+      <ion-input [(ngModel)]="email" type="text"></ion-input>
     </ion-item>
   </ion-list>
   <button ion-button outline (click)="recuperarCuenta()">Enviar</button>

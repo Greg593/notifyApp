@@ -1,28 +1,38 @@
-
 <ion-header>
 
   <ion-navbar>
-    <ion-title>Inicio de Sesión</ion-title>
+    <ion-title text-center>Inicio de Sesión</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
-<ion-content padding scroll="false" text-center col col-50 col-offset-25>
+<ion-content padding no-bounce text-center col col-50 col-offset-25>
   <h2>Notifica y Alerta</h2>
   <p> Bienvenido! </p>
   <ion-list>
+
     <ion-item>
-      <ion-label floating>email</ion-label>
-      <ion-input [(ngModel)]="email" type="text" value=""></ion-input>
+      <ion-label floating>  Correo</ion-label>
+      <ion-input [(ngModel)]="email" type="text"></ion-input>
     </ion-item>
-    <ion-item>
-      <ion-label floating>Contraseña</ion-label>
+
+    <ion-item>      
+      <ion-label floating>  Contraseña</ion-label>
       <ion-input [(ngModel)]="password" type="password"></ion-input>
     </ion-item>
+
   </ion-list>
-  <button ion-button outline (click)="login()">Iniciar Sesión</button>
-  <button ion-button outline (click)="launchSignup()">Crear Cuenta</button>
-  <br>
-  <button ion-button clear (click)="resetPassword()">Olvidaste tu Contraseña, click aquí</button>
+
+  <a (click)="resetPassword()">Olvidé mi contraseña</a>  <br> <br>
+  <button ion-button outline (click)="login()">Iniciar Sesión</button> <br><br>
+  <button ion-button icon-logo-facebook clear (click)="launchSignup()">
+    <ion-icon name="logo-facebook" class="fb-icon"></ion-icon>Inicia Sesión con Facebook
+  </button> <br> <br> <br> <br> <br>
+  <hr>
+
+  <p>
+      ¿No tienes una cuenta? <a (click)="launchSignup()">Crear Cuenta</a>
+    </p>
+
 </ion-content>

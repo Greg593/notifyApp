@@ -13,6 +13,7 @@ import { BusesPage } from '../pages/buses/buses';
 import { ForgottenpswPage } from '../pages/forgottenpsw/forgottenpsw';
 import { HistoryPage } from '../pages/history/history';
 import { LoginPage } from '../pages/login/login';
+import { LogoutPage } from '../pages/logout/logout';
 import { SignupPage } from '../pages/signup/signup';
 import { UpdateprofilePage } from '../pages/updateprofile/updateprofile';
 
@@ -35,7 +36,9 @@ import { HistorialProvider } from '../providers/historial/historial';
     HistoryPage,
     LoginPage,
     SignupPage,
-    UpdateprofilePage
+    UpdateprofilePage,
+    LogoutPage
+    
   ],
   imports: [
     BrowserModule,
@@ -58,7 +61,8 @@ import { HistorialProvider } from '../providers/historial/historial';
     HistoryPage,
     LoginPage,
     SignupPage,
-    UpdateprofilePage
+    UpdateprofilePage,
+    LogoutPage
   ],
   providers: [
     StatusBar,

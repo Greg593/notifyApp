@@ -1,54 +1,60 @@
 <ion-header>
 
-  <ion-navbar color="secondary">
-    <ion-title>Create Account</ion-title>
+  <ion-navbar>
+    <ion-title>Creación de Cuenta</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
-<ion-content padding>
-
- <ion-row class="account-form">
+<ion-content padding text-center col col-50 col-offset-25>
+    <h2>Notifica y Alerta</h2>
+    <p>Creemos un mejor futuro</p>
+    
+ <ion-row>
     <ion-col>
       <ion-list inset>
 
         <ion-item>
-          <ion-label>
-            <ion-icon name="mail"></ion-icon>
-          </ion-label>
-          <ion-input [(ngModel)]="email" placeholder="Email" type="email"></ion-input>
+            <ion-label floating>
+              <ion-icon name="person"></ion-icon> Nombre
+            </ion-label>
+            <ion-input [(ngModel)]="name" type="text"></ion-input>
         </ion-item>
 
         <ion-item>
-          <ion-label>
-            <ion-icon name="lock"></ion-icon>
+          <ion-label floating>
+            <ion-icon name="mail"></ion-icon> Email
           </ion-label>
-          <ion-input [(ngModel)]="dpi" placeholder="DPI" type="text"></ion-input>
+          <ion-input [(ngModel)]="email"  type="email"></ion-input>
         </ion-item>
 
         <ion-item>
-          <ion-label>
-            <ion-icon name="lock"></ion-icon>
+          <ion-label floating>
+            <ion-icon name="card"></ion-icon> DPI
           </ion-label>
-          <ion-input [(ngModel)]="password" placeholder="Password" type="password"></ion-input>
+          <ion-input [(ngModel)]="dpi" type="text"></ion-input>
         </ion-item>
-
-
 
         <ion-item>
-          <ion-label>Role</ion-label>
-          <ion-select [(ngModel)]="role">
-            <ion-option value="user">Usuario</ion-option>
-            <ion-option value="administrator">Administrador</ion-option>
-          </ion-select>
+          <ion-label floating>
+            <ion-icon name="lock"></ion-icon> Contraseña
+          </ion-label>
+          <ion-input [(ngModel)]="password"  type="password"></ion-input>
         </ion-item>
 
-      </ion-list>
+        <ion-item>
+            <ion-label floating>
+              <ion-icon name="lock"></ion-icon> Confirmar Contraseña
+            </ion-label>
+            <ion-input [(ngModel)]="rpassword" type="password"></ion-input>
+        </ion-item>
 
-      <button ion-button (click)="register()" class="continue-button">Register</button>
+      </ion-list> <br>
+
+      <button ion-button outline (click)="register()" >Crear Cuenta</button>
 
     </ion-col>
   </ion-row>
 
-</ion-content>
+</ion-content> 

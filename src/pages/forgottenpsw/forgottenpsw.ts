@@ -15,11 +15,15 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class ForgottenpswPage {
 
+  horas: number;
+
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+    this.horas = 7;
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ForgottenpswPage');
+    
   }
 
   recuperarCuenta(){
