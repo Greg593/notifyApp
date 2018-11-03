@@ -9,7 +9,7 @@ import { AuthProvider } from '../../providers/auth/auth';
 })
 export class SignupPage {
  
-  name: String;
+  nombre: String;
   email: string;
   password: string;
   dpi: string;
@@ -25,7 +25,7 @@ export class SignupPage {
     this.showLoader();
  
     let details = {
-        name: this.name,
+        nombre: this.nombre,
         email: this.email,
         password: this.password,
         dpi: this.dpi
