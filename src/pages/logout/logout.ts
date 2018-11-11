@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, App } from 'ionic-angular';
 import { AuthProvider } from '../../providers/auth/auth';
 import { LoginPage } from '../login/login';
 import { AboutPage } from '../about/about';
@@ -13,13 +13,13 @@ import { AboutPage } from '../about/about';
 })
 export class LogoutPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public authService: AuthProvider) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public authService: AuthProvider, public app: App) {
   }
 
   logout() {
     this.authService.logout();
-    this.navCtrl.setRoot(LoginPage);
-    //this.app.getRootNav().setRoot(LoginPage);
+    //this.navCtrl.setRoot(LoginPage);
+    this.app.getRootNav().setRoot(LoginPage);
   }
 
   about(){

@@ -1,8 +1,8 @@
 <ion-tabs>
-  <ion-tab [root]="tab1Root" tabTitle="Inicio" tabIcon="home"></ion-tab>
-  <ion-tab [root]="tab2Root" tabTitle="Buses" tabIcon="bus"></ion-tab>
-  <ion-tab [root]="tab3Root" tabTitle="Perfil" tabIcon="contacts"></ion-tab>
-  <ion-tab [root]="tab4Root" tabTitle="Historial" tabIcon="filing"></ion-tab>
-  <ion-tab [root]="tab5Root" tabTitle="Acerca de" tabIcon="help"></ion-tab>
-  <ion-tab [root]="tab6Root" tabTitle="Salir" tabIcon="exit"></ion-tab>
+  <ion-tab [root]="tab1Root" tabTitle="Inicio" tabIcon="home" [rootParams]="user"></ion-tab>
+  <ion-tab [root]="tab2Root" tabTitle="Buses" tabIcon="bus" [rootParams]="user"></ion-tab>
+  <ion-tab [root]="tab3Root" tabTitle="Perfil" tabIcon="contacts" [rootParams]="user"></ion-tab>
+  <ion-tab [root]="tab4Root" tabTitle="Historial" tabIcon="filing" [rootParams]="user"></ion-tab>
+  <ion-tab [root]="tab5Root" tabTitle="Acerca de" tabIcon="help" [rootParams]="user"></ion-tab>
+  <ion-tab [root]="tab6Root" tabTitle="Salir" tabIcon="exit" [rootParams]="user"></ion-tab>
 </ion-tabs>

@@ -9,7 +9,7 @@ import { AuthProvider } from '../../providers/auth/auth';
 })
 export class SignupPage {
  
-  nombre: String;
+  nombre: string;
   email: string;
   password: string;
   dpi: string;

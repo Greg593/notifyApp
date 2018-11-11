@@ -16,6 +16,7 @@ import { LoginPage } from '../pages/login/login';
 import { LogoutPage } from '../pages/logout/logout';
 import { SignupPage } from '../pages/signup/signup';
 import { UpdateprofilePage } from '../pages/updateprofile/updateprofile';
+import { DetallebusPage } from '../pages/detallebus/detallebus';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -37,7 +38,8 @@ import { HistorialProvider } from '../providers/historial/historial';
     LoginPage,
     SignupPage,
     UpdateprofilePage,
-    LogoutPage
+    LogoutPage,
+    DetallebusPage
     
   ],
   imports: [
@@ -62,7 +64,8 @@ import { HistorialProvider } from '../providers/historial/historial';
     LoginPage,
     SignupPage,
     UpdateprofilePage,
-    LogoutPage
+    LogoutPage,
+    DetallebusPage
   ],
   providers: [
     StatusBar,

@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
-import { NavController, ModalController, AlertController, LoadingController } from 'ionic-angular';
+import { NavController, ModalController, AlertController, LoadingController, NavParams } from 'ionic-angular';
 import { BusesProvider } from '../../providers/buses/buses';
 import { AuthProvider } from '../../providers/auth/auth';
+import { DetallebusPage } from '../detallebus/detallebus';
+
 
 @Component({
   selector: 'page-buses',
@@ -11,14 +13,15 @@ export class BusesPage {
 
   buses: any;
   loading: any;
+  usuario: any;
  
-  constructor(public navCtrl: NavController, public busService: BusesProvider, public modalCtrl: ModalController,
-    public alertCtrl: AlertController, public authService: AuthProvider, public loadingCtrl: LoadingController) {
+  constructor(public navCtrl: NavController, public busService: BusesProvider, 
+    public modalCtrl: ModalController, public alertCtrl: AlertController, 
+    public authService: AuthProvider, public loadingCtrl: LoadingController) {
  
   }
  
   ionViewDidLoad(){
- 
     this.busService.getBuses().then((data) => {        
       this.buses = data;
       console.log("datos" + data);  
@@ -31,19 +34,35 @@ export class BusesPage {
   addBus(){
  
     let prompt = this.alertCtrl.create({
-      title: 'Add Bus',
-      message: 'Describe your bus below:',
+      title: 'Agregar Bus',
+      message: 'Ingresa los datos siguientes:',
       inputs: [
         {
-          name: 'title'
+          name: 'nombre',
+          placeholder: 'Nombre Bus'
+        },
+        {
+          name: 'placa',
+          placeholder: 'Placa'
+        },
+        {
+          name: 'centra',
+          placeholder: 'Número CENTRA'
+        },
+        {
+          name: 'qr',
+          placeholder: 'Código QR'
         }
       ],
       buttons: [
         {
-          text: 'Cancel'
+          text: 'QR'
         },
         {
-          text: 'Save',
+          text: 'Cancelar'
+        },
+        {
+          text: 'Guardar',
           handler: bus => {
  
                 if(bus){
@@ -93,10 +112,14 @@ export class BusesPage {
     });
   }
 
+  verBus(bus){
+    this.navCtrl.push(DetallebusPage);
+  }
+
   showLoader(){
  
     this.loading = this.loadingCtrl.create({
-      content: 'Authenticating...'
+      content: 'Cargando...'
     });
  
     this.loading.present();

@@ -28,6 +28,7 @@ export class LoginPage {
         this.authService.checkAuthentication().then((res) => {
             console.log("Ya te has logueado");
             this.loading.dismiss();
+            console.log(this.authService.storage);
             this.navCtrl.setRoot(TabsPage);
         }, (err) => {
             console.log("Usuario NO autorizado");
@@ -40,15 +41,15 @@ export class LoginPage {
 
         this.showLoader();
 
-        let credentials = {
+        let credentials = {            
             email: this.email,
-            password: this.password
+            password: this.password        
         };
 
         this.authService.login(credentials).then((result) => {
             this.loading.dismiss();
             console.log(result);
-            this.navCtrl.setRoot(TabsPage);
+            this.navCtrl.setRoot(TabsPage, result);
         }, (err) => {
             this.loading.dismiss();
             console.log(err);

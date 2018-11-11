@@ -46,6 +46,23 @@ export class UsuariosProvider {
     });
  
   }
+
+  getUsuario(id){
+ 
+    return new Promise((resolve, reject) => {
+ 
+        let headers = new Headers();
+        headers.append('Authorization', this.authService.token);
+ 
+        this.http.get('http://localhost:8080/api/usuarios/' + id, {headers: headers}).subscribe((res) => {
+            resolve(res);
+        }, (err) => {
+            reject(err);
+        });   
+ 
+    });
+ 
+  }
  
   deleteTodo(id){
  
