@@ -48,10 +48,6 @@ export class BusesPage {
         {
           name: 'centra',
           placeholder: 'Número CENTRA'
-        },
-        {
-          name: 'qr',
-          placeholder: 'Código QR'
         }
       ],
       buttons: [
