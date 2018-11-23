@@ -10,16 +10,40 @@
     Es un sistema de alertas que te ayudará a reportar o notificar cualquier anomalía en tu viaje.
   </p>
 
-  <ion-fab center middle>
-    <button ion-fab color="danger"><ion-icon name="add"></ion-icon></button>
+  <ion-fab bottom right>
+    <button ion-fab color="danger">
+      <ion-icon name="add"></ion-icon>
+    </button>
+
+    
     <ion-fab-list side="top">
-      <button ion-fab color="primary"><ion-icon name="nuclear"></ion-icon></button>
+      <button ion-fab *ngFor="let alerta of alertas" color={{alerta.color}} 
+      (click)="enviarAlerta(alerta)">
+        <ion-icon name={{alerta.icono}}></ion-icon>
+        <!-- <ion-label>{{alerta.descripcion}}</ion-label> -->
+      </button>
     </ion-fab-list>
+
+    <!-- <ion-fab-list side="top">
+      <button ion-fab color="primary">
+        <ion-icon name="nuclear"></ion-icon>
+      </button>
+    </ion-fab-list>
+
     <ion-fab-list side="left">
-      <button ion-fab color="light"><ion-icon name="walk"></ion-icon></button>
+      <button ion-fab color="light">
+        <ion-icon name="walk"></ion-icon>
+      </button>
     </ion-fab-list>
+
     <ion-fab-list side="right">
-      <button ion-fab color="dark"><ion-icon name="walk"></ion-icon></button>
-    </ion-fab-list>
+      <button ion-fab color="dark">
+        <ion-icon name="walk"></ion-icon>
+      </button>
+    </ion-fab-list> -->
+
   </ion-fab>
+
+
+
 </ion-content>

@@ -24,6 +24,9 @@ import { AuthProvider } from '../providers/auth/auth';
 import { UsuariosProvider } from '../providers/usuarios/usuarios';
 import { BusesProvider } from '../providers/buses/buses';
 import { HistorialProvider } from '../providers/historial/historial';
+import { DataProvider } from '../providers/data/data';
+import { AlertasProvider } from '../providers/alertas/alertas';
+import { AlertaUserProvider } from '../providers/alerta-user/alerta-user';
 
 @NgModule({
   declarations: [
@@ -74,7 +77,10 @@ import { HistorialProvider } from '../providers/historial/historial';
     AuthProvider,
     UsuariosProvider,
     BusesProvider,
-    HistorialProvider
+    HistorialProvider,
+    DataProvider,
+    AlertasProvider,
+    AlertaUserProvider
   ]
 })
 export class AppModule {}

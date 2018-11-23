@@ -7,6 +7,7 @@ import 'rxjs/add/operator/map';
 export class AuthProvider {
  
   public token: any;
+  public user: any;
  
   constructor(public http: Http, public storage: Storage) {
  
@@ -26,6 +27,10 @@ export class AuthProvider {
  
             this.http.get('http://localhost:8080/api/auth/protected', {headers: headers})
                 .subscribe(res => {
+                  let data = res.json();
+                  this.token = data.token;
+                  console.log(this.token);
+                  this.storage.set('token', data.token);
                     resolve(res);
                 }, (err) => {
                     reject(err);
@@ -49,6 +54,7 @@ export class AuthProvider {
  
             let data = res.json();
             this.token = data.token;
+            console.log(this.token);
             this.storage.set('token', data.token);
             resolve(data);
  
@@ -71,8 +77,9 @@ export class AuthProvider {
           .subscribe(res => {
  
             let data = res.json();
-            this.token = data.token;
-            this.storage.set('token', data.token);
+            this.token = data.token;                       
+            //console.log(data.token);                    
+            this.storage.set('token', data.token);            
             resolve(data);
  
             resolve(res.json());
@@ -86,6 +93,7 @@ export class AuthProvider {
  
   logout(){
     this.storage.set('token', '');
+    this.storage.set('user', '');
   }
  
 }

@@ -5,6 +5,7 @@ import { SignupPage } from '../signup/signup';
 import { AuthProvider } from '../../providers/auth/auth';
 import { ForgottenpswPage } from '../forgottenpsw/forgottenpsw';
 import { TabsPage } from '../tabs/tabs';
+import { DataProvider } from '../../providers/data/data';
 
 
 @IonicPage()
@@ -18,7 +19,7 @@ export class LoginPage {
     password: string;
     loading: any;
 
-    constructor(public navCtrl: NavController, public loadingCtrl: LoadingController, public authService: AuthProvider, public navParams: NavParams) {
+    constructor(public navCtrl: NavController, public loadingCtrl: LoadingController, public authService: AuthProvider, public navParams: NavParams, public data: DataProvider) {
     }
 
     ionViewDidLoad() {
@@ -28,7 +29,7 @@ export class LoginPage {
         this.authService.checkAuthentication().then((res) => {
             console.log("Ya te has logueado");
             this.loading.dismiss();
-            console.log(this.authService.storage);
+            console.log(this.authService.storage);            
             this.navCtrl.setRoot(TabsPage);
         }, (err) => {
             console.log("Usuario NO autorizado");
@@ -36,6 +37,8 @@ export class LoginPage {
         });
 
     }
+
+
 
     login() {
 
@@ -47,9 +50,18 @@ export class LoginPage {
         };
 
         this.authService.login(credentials).then((result) => {
-            this.loading.dismiss();
-            console.log(result);
-            this.navCtrl.setRoot(TabsPage, result);
+            this.loading.dismiss(); 
+            const userInfo = JSON.stringify(result);    
+            //console.log(JSON.parse(userInfo));
+            var obj = JSON.parse(userInfo);        
+            var values = [];
+            values = Object.keys(obj).map(function (key) { return obj[key]; });
+            //console.log(values[1]);     
+            
+            
+            this.data.paramData = values[1];
+            
+            this.navCtrl.setRoot(TabsPage);
         }, (err) => {
             this.loading.dismiss();
             console.log(err);
@@ -68,7 +80,7 @@ export class LoginPage {
     showLoader() {
 
         this.loading = this.loadingCtrl.create({
-            content: 'Autenticando...'
+            content: 'Cargando...'
         });
 
         this.loading.present();

@@ -4,12 +4,6 @@ import { UsuariosProvider } from '../../providers/usuarios/usuarios';
 import { AuthProvider } from '../../providers/auth/auth';
 import { Http, Headers } from '@angular/http';
 
-/**
- * Generated class for the UpdateprofilePage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
 
 @IonicPage()
 @Component({
@@ -27,6 +21,8 @@ export class UpdateprofilePage {
     public loadingCtrl: LoadingController) {
     
   }
+
+  
 
   ionViewDidLoad() {
     console.log(this.authService.token);
